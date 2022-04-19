@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customer">
+            <group id="address">
+                <field id="vat_required_countries" translate="label" type="multiselect" sortOrder="81" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Required Countries for VAT (empty for all)</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="customer/address/taxvat_show">req</field>
+                    </depends>
+                </field>
+                <field id="hide_vat_field_not_required" translate="label comment" type="select" sortOrder="82" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Hide VAT field if not required</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Customer\Model\Config\Backend\Show\Address</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
